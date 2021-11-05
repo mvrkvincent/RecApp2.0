@@ -1,8 +1,10 @@
-## Frontend Design + React
+# Frontend Design + React
 
 ---
 
-### React Vanilla Install
+## JS Frameworks + Libraries
+
+## React Vanilla Install
 
 > "No Magic, Just JavaScript"
 
