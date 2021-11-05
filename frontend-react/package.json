@@ -8,7 +8,7 @@
     "dev": "webpack serve --config ./webpack.config.js --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "RecApp x MVRK",
+  "author": "RecApp2.0 x MVRK",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.16.0",
