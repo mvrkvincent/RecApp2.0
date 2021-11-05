@@ -28,7 +28,24 @@
 
 4. Create an `index.html` file within `/public` and an entry file `index.js` within `/src`. These files form the foundation of our React app.
    
-5. Navigate to `/public/index.html` and populate it with a simple HTML structure. Within the `body` tag, add a single `div` with `id='root`, this should look familiar. Put some text within the tags, I went with `Hello World` because I'm very creative.
+5. Navigate to `/public/index.html` and populate it with a simple HTML structure. Within the `body` tag, add a single `div` with `id='root`, this should look familiar. Put some text within the tags, I went with `Hello World` because I'm very creative. Don't forget to include a script tag in `head` that links to `bundle.js` (no need to create this file anywhere, more on this later).
+
+    ~~~html 
+    <!-- /public/index.html -->
+        <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <script src="bundle.js" defer></script> 
+                <title>Questions App</title>
+            </head>
+            <body>
+                <div id='root'>Hello World</div>
+            </body>
+        </html>
+    ~~~
 
 6. Add a `start` script to our `package.json`. This will allow us to spin up our frontend with a single command. 
 
@@ -55,13 +72,16 @@
             path: path.resolve(__dirname, './public'),
             filename: 'bundle.js',
           },
+          devServer: {
+            static: path.resolve(__dirname, './public'),
+          },
           module: {
             rules: [
               {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: {
-                  loader: ['babel-loader'],
+                  loader: 'babel-loader',
                   options: {
                     presets: ['@babel/env', '@babel/react']
                   },
@@ -95,7 +115,7 @@
     ~~~
 
 
-9. Navigate to `/src/index.js` and build a simple react component. 
+9.  Navigate to `/src/index.js` and build a simple react component. 
 
     ~~~js
     // /src/index.js
