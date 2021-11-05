@@ -44,6 +44,8 @@
 7. Create a `webpack.config.js` file in root `/` and configure as follows. Keeping in mind, there is no magic happening here, it's just JavaScript.
 
     ~~~js
+    // /webpack.config.js
+
         const path = require('path');
 
         module.exports = {
@@ -57,10 +59,10 @@
             rules: [
               {
                 test: /\.jsx?$/,
-                exclude: /(node_modules)/,
+                exclude: /node_modules/,
                 use: {
-                  loader: 'babel-loader',
-                  query: {
+                  loader: ['babel-loader'],
+                  options: {
                     presets: ['@babel/env', '@babel/react']
                   },
                 },
@@ -76,5 +78,34 @@
             extensions: [".js", ".jsx", "*"]
           },
         };
+
+    ~~~
+
+8. Now, let's utilize the `React` library to generate HTML for us. Let's create a new directory `components` and add a new file `App.js` as our primary component.
+
+    ~~~js
+    // /src/components/App.js
+
+        import React from 'react';
+
+        export const App = () => {
+          return <div className="App">Hello World (but with React!)</div>
+        };
+
+    ~~~
+
+
+9. Navigate to `/src/index.js` and build a simple react component. 
+
+    ~~~js
+    // /src/index.js
+
+        import React from 'react';
+        import ReactDOM from 'react-dom';
+        import {App} from './components/App';
+
+        document.addEventListener('DOMContentLoaded', () => {
+          ReactDOM.render(<App />, document.getElementById('root'));
+        });
 
     ~~~

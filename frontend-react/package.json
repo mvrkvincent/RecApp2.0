@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack -w --mode=development",
+    "dev": "webpack serve --config ./webpack.config.js --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "RecApp x MVRK",
@@ -20,5 +21,8 @@
     "style-loader": "^3.3.1",
     "webpack": "^5.61.0",
     "webpack-cli": "^4.9.1"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^4.4.0"
   }
 }

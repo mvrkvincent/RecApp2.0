@@ -7,15 +7,18 @@ module.exports = {
     path: path.resolve(__dirname, './public'),
     filename: 'bundle.js',
   },
+  devServer: {
+    static: path.resolve(__dirname, './public'),
+  },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /(node_modules)/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          query: {
-            presets: ['@babel/env', '@babel/react']
+          options: {
+            presets: ['env', 'react']
           },
         },
       },
