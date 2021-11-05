@@ -19,6 +19,14 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      }
     ]
+  },
+  devtool: 'eval-source-map',
+  resolve: {
+    extensions: [".js", ".jsx", "*"]
   },
 };
