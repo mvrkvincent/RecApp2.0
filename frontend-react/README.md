@@ -13,6 +13,7 @@
     - Webpack - Bundles JS files into a single file (see `frontend-vanilla` for why this matters)
       - `webpack`
       - `webpack-cli`
+      - `webpack-dev-server --save-dev`
     - Babel
       - `@babel/core`
       - `@babel/preset-env`
@@ -47,13 +48,13 @@
         </html>
     ~~~
 
-6. Add a `start` script to our `package.json`. This will allow us to spin up our frontend with a single command. 
+6. Add a `dev` script to our `package.json`. This will allow us to spin up our frontend with a single command `npm run dev`. 
 
     ~~~js
     // package.json
         "scripts": {
             // ...
-           "start": "webpack -w --mode=development",
+            "dev": "webpack serve --config ./webpack.config.js --mode development",
             // ...
         },
     ~~~
@@ -101,7 +102,10 @@
 
     ~~~
 
-8. Now, let's utilize the `React` library to generate HTML for us. Let's create a new directory `components` and add a new file `App.js` as our primary component.
+
+8. At this stage, let's run our start script and navigate to the open port on your browser of choice (Chrome, it's Chrome). (NB: Check Webpacks terminal output for your port number, mine is `8080`). `Hello World` should appear.
+
+9. Now, let's utilize the `React` library to generate HTML for us. Let's create a new directory `components` and add a new file `App.js` as our primary component.
 
     ~~~js
     // /src/components/App.js
@@ -109,13 +113,13 @@
         import React from 'react';
 
         export const App = () => {
-          return <div className="App">Hello World (but with React!)</div>
+          return <div className="App">Hello World (Now w/ 100% more React!)</div>
         };
 
     ~~~
 
 
-9.  Navigate to `/src/index.js` and build a simple react component. 
+10. Now, navigate to `/src/index.js` and let's create an event listener to run some code once our content has loaded. The code can be anything we want it to be, but in this case, we will be using react to assemble the nodes of our DOM Tree for us and insert the result between the opening and closing tags of our `root` div.  
 
     ~~~js
     // /src/index.js
@@ -129,3 +133,5 @@
         });
 
     ~~~
+
+11. Finally, check your browser. You may need to kill your server and restart, but if all has gone to plan `Hello World` will be replaced by `Hello World (Now w/ 100% more React!)` 
