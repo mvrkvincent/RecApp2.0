@@ -102,7 +102,6 @@
               }
             ]
           },
-          devtool: 'eval-source-map',
           // resolve the file extensions we will use in this application.
           resolve: {
             extensions: [".js", ".jsx", "*"]
@@ -227,6 +226,7 @@ The core feature of our application allows users to Create, Read, and Destroy a 
 
       return (
         <div className="App">
+          <header>RecApp2.0</header>
           <QuestionForm 
             submitQuestion={submitQuestion}
           />

@@ -15,19 +15,19 @@ export const App = () => {
     // },
     entities: {
       questions: {
-        123: {_id: 123, name: 'Vladimir Harkonnen', content: 'Am I the drama?' },
-        124: {_id: 124, name: 'Lady Jessica', content: 'Is Paul the Kwisatz Haderach?' },
-        125: {_id: 125, name: 'Paul Atreides', content: 'Why am I always dreaming of Arrakis?' },
+        1: {_id: 1, name: 'Vladimir Harkonnen', content: 'Am I the drama?' },
+        2: {_id: 2, name: 'Lady Jessica', content: 'Is Paul the Kwisatz Haderach?' },
+        3: {_id: 3, name: 'Paul Atreides', content: 'Why am I always dreaming of Arrakis?' },
       },
     },
     // ui: {
     //   isDark: false,
     // },
   });
-
   const submitQuestion = question => {
     const NEW_STATE = {...GLOBAL_STATE};
     NEW_STATE.entities.questions[question._id] = question;
+    debugger
     setGlobalState(NEW_STATE);
   };
 
@@ -39,6 +39,7 @@ export const App = () => {
 
   return (
     <div className="App">
+      <header>RecApp2.0</header>
       <QuestionForm 
         submitQuestion={submitQuestion}
       />

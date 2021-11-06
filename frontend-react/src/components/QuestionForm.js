@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const defaultQuestion = {
+  _id: null,
   name: '',
   content: ''
 };
@@ -10,13 +11,15 @@ export const QuestionForm = ({ submitQuestion }) => {
 
     const handleInput = e => {
       e.preventDefault();
-      setQuestion({...question, [e.target.name]: e.target.value})
+      setQuestion({...question, [e.target.name]: e.target.value});
     }
 
     const handleSubmit = e => {
       e.preventDefault();
+      // generates a unique _id for each question (not infallible).
+      question._id = Math.floor(Math.random() * 1000);
       submitQuestion(question);
-      setQuestion(defaultQuestion)
+      setQuestion(defaultQuestion);
     };
 
     return (
