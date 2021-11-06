@@ -5,9 +5,9 @@
 
 > "No Magic, Just JavaScript"
 
-1. Initialize package management with `npm init`. We are using NPM but there are other options avalible. Follow the default prompts, customizing where you see fit. This will generate a `package.json`.
+1. Initialize package management with `npm init`. We are using NPM but there are other options available. Follow the default prompts, customizing where you see fit. This will generate a `package.json`.
 
-2. Install dependancies `npm i`:
+2. Install dependencies `npm i`:
     - React - Modern frontend library
       - `react`
       - `react-dom`
@@ -121,7 +121,7 @@
         import React from 'react';
        
         export const App = () => {
-           // The primary benefit of React is it's ability to return HTML elemetents from JS functions, abstracting away the likes of `document.append()`.
+           // The primary benefit of React is its ability to return HTML elements from JS functions, abstracting away the likes of `document.append()`.
           return <div className="App">Hello World (Now w/ 100% more React!)</div>
         };
 
@@ -152,9 +152,9 @@ Congratulations - You're a wizard `${firstName}` ! Or at least the wizard that i
 
 The core feature of our application allows users to Create, Read, and Destroy a Question. We will use React to help us generate the visual elements that allow users to interact with this functionality. 
 
-1. Before we build out our components, let's turn our attention back to `./App.js` and plan out the overall archetecture and business logic of our applcation.
+1. Before we build out our components, let's turn our attention back to `./App.js` and plan out the overall architecture and business logic of our application.
 
-2. The scope of our application is quite narrow; submit a question, view a question, remove a question. However, if we decide to add features such as user authentication, answers to questions, or even dark mode,  we will generate data that needs to be shared among many unique components. With this in mind, lets create a `GLOBAL_STATE` constant to hold the current (and theoretical) state of our application. Any changes to this object will be reflected in any component to which it has been passed as a prop. 
+2. The scope of our application is quite narrow; submit a question, view a question, remove a question. However, if we decide to add features such as user authentication, answers to questions, or even dark mode,  we will generate data that needs to be shared among many unique components. With this in mind, let's create a `GLOBAL_STATE` constant to hold the current (and theoretical) state of our application. Any changes to this object will be reflected in any component to which it has been passed as a prop. 
 
       ~~~js
           // /src/components/App.js
@@ -188,24 +188,24 @@ The core feature of our application allows users to Create, Read, and Destroy a 
 3. Next let's create some functions that carry out the *action* of CR(U)D'ing our Questions. We will want to create an entirely new object `NEW_STATE` from our `GLOBAL_STATE` prior to making any changes. This way, we are never *modifying* state directly.
 
       ~~~js
-            // ...
+          // ...
 
-            // since our questions live within the App component itself, there is no need for a READ action.
+          // since our questions live within the App component itself, there is no need for a READ action.
 
-            const submitQuestion = question => {
-              // create new object prior to modification.
-              const NEW_STATE = {...GLOBAL_STATE};
-              NEW_STATE.entities.questions[question._id] = question;
-              setGlobalState(NEW_STATE);
-            };
+          const submitQuestion = question => {
+            // create new object prior to modification.
+            const NEW_STATE = {...GLOBAL_STATE};
+            NEW_STATE.entities.questions[question._id] = question;
+            setGlobalState(NEW_STATE);
+          };
 
-            const deleteQuestion = _id => {
-              const NEW_STATE = {...GLOBAL_STATE};
-              delete NEW_STATE.entities.questions[_id];
-              setGlobalState(NEW_STATE);
-            };
+          const deleteQuestion = _id => {
+            const NEW_STATE = {...GLOBAL_STATE};
+            delete NEW_STATE.entities.questions[_id];
+            setGlobalState(NEW_STATE);
+          };
 
-            // ...
+          // ...
 
       ~~~
 
@@ -217,42 +217,43 @@ The core feature of our application allows users to Create, Read, and Destroy a 
 5. Since we have taken a top down approach to building our application, create simple component functions to start and import them into `./App.js` immediately. Being sure to pass `GLOBAL_STATE` and the appropriate action functions where needed. 
 
     ~~~js
-      // /src/components/App.js
+         // /src/components/App.js
 
-      import { QuestionForm } from './QuestionForm';
-      import { Questions } from './Questions';
+         import { QuestionForm } from './QuestionForm';
+         import { Questions } from './Questions';
 
-      // ...
+         // ...
 
-      return (
-        <div className="App">
-          <header>RecApp2.0</header>
-          <QuestionForm 
-            submitQuestion={submitQuestion}
-          />
-          <Questions 
-            deleteQuestion={deleteQuestion}
-            GLOBAL_STATE={GLOBAL_STATE}
-          />
-        </div>
-      );
+         return (
+           <div className="App">
+             <header>RecApp2.0</header>
+             <QuestionForm 
+               submitQuestion={submitQuestion}
+             />
+             <Questions 
+               deleteQuestion={deleteQuestion}
+               GLOBAL_STATE={GLOBAL_STATE}
+             />
+           </div>
+         );
 
-      // /src/components/Questions.js
+         // /src/components/Questions.js
 
-      export const Questions = ({GLOBAL_STATE, deleteQuestion}) => {
-        // we want to iterate through an array of questions eventually.
-        const questions = Object.values(GLOBAL_STATE.entities.questions)
-        return 'Questions Go Here'
-      };
+         export const Questions = ({GLOBAL_STATE, deleteQuestion}) => {
+           // we want to iterate through an array of questions eventually.
+           const questions = Object.values(GLOBAL_STATE.entities.questions)
+           return 'Questions Go Here'
+         };
 
-      // /src/components/QuestionForm.js
+         // /src/components/QuestionForm.js
 
-      export const QuestionForm = ({submitQuestion}) => {
-        return 'Form Goes Here'
-      };
+         export const QuestionForm = ({submitQuestion}) => {
+           return 'Form Goes Here'
+         };
 
     ~~~
 
 6. Now, build out your components and check your work. It's not pretty, but it's functional.
 
-7. Ok, lets make it pretty. Create a `css_reset.css` (copy the one from this repo) and `app.css` file in `/src/components`. Style as you please!
+7. Ok, let's make it pretty. Create a `css_reset.css` (copy the one from this repo) and `app.css` file in `/src/components`. Style as you please!
+
