@@ -5,7 +5,7 @@
 
 > "No Magic, Just JavaScript"
 
-1. Initialize package management with `npm init`. This will generate a `package.json`.
+1. Initialize package management with `npm init` and follow the default prompts (customizing where desired). This will generate a `package.json`.
 
 2. Install dependencies `npm i`:
     - Express - Straight forward backend framework
@@ -20,10 +20,22 @@
     - Nodemon
       - `nodemon --save-dev`
 
-3. Create a foundational file structure in our root directory.
-    - `.gitignore`
-    - `app.js`
+3. Let's configure our `package.json` with a few start scripts:
 
-4. Create an `index.html` file within `/public` and an entry file `index.js` within `/src`. These files form the foundation of our React app.
+    ~~~js
+       // /package.json
+       "scripts": {
+           // ...
+           "start": "node index.js",
+           "start:dev": "nodemon --inspect index.js",
+           // ...
+       },
+    ~~~
+
+4. Create a foundational file structure in our root directory.
+    - `.gitignore` - include `/node_modules`
+    - `index.js`
+
+5. 
    
 
