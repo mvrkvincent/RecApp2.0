@@ -8,7 +8,7 @@ export const App = () => {
   const [questions, setQuestions] = useState([
     { _id: 1, name: 'Vladimir Harkonnen', content: 'Am I the drama?' },
     { _id: 2, name: 'Lady Jessica', content: 'Is Paul the Kwisatz Haderach?' },
-    { _id: 3, name: 'Paul Atreides', content: 'Why am I always dreaming of Arrakis?' },
+    { _id: 3, name: 'Paul Atreides', content: 'Why are my dreams so sandy?' },
   ]);
   
   const submitQuestion = question => {

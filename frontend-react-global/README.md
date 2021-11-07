@@ -1,7 +1,7 @@
-# State & State Management
+# Global State
 ---
 
-## State
+## Stateful Refactor
 
 > "A single source of truth"
 
@@ -15,7 +15,7 @@
           const [questions, setQuestions] = useState([
             { _id: 1, name: 'Vladimir Harkonnen', content: 'Am I the drama?' },
             { _id: 2, name: 'Lady Jessica', content: 'Is Paul the Kwisatz Haderach?' },
-            { _id: 3, name: 'Paul Atreides', content: 'Why am I always dreaming of Arrakis?' },
+            { _id: 3, name: 'Paul Atreides', content: 'Why are my dreams so sandy?' },
           ]);
 
         // ...
@@ -68,14 +68,12 @@
                  isAdmin: true,
                }
              },
-             entities: {
-               questions: {
+              questions: {
                  123: {_id: 123, name: 'Vladimir Harkonnen', content: 'Am I the drama?' },
                  124: {_id: 124, name: 'Lady Jessica', content: 'Is Paul the Kwisatz Haderach?' },
-                 125: {_id: 125, name: 'Paul Atreides', content: 'Why am I always dreaming of Arrakis?' },
+                 125: {_id: 125, name: 'Paul Atreides', content: 'Why are my dreams so sandy?' },
                },
-               answers: {}
-             },
+              answers: {},
               ui: {
                 isDark: false,
               },
@@ -96,23 +94,20 @@ Notice that we have also changed the configuration of our `questions` from an ar
           const submitQuestion = question => {
             // create new object prior to modification.
             const NEW_STATE = {...GLOBAL_STATE};
-            NEW_STATE.entities.questions[question._id] = question;
+            NEW_STATE.questions[question._id] = question;
             setGlobalState(NEW_STATE);
           };
 
           const deleteQuestion = _id => {
             const NEW_STATE = {...GLOBAL_STATE};
-            delete NEW_STATE.entities.questions[_id];
+            delete NEW_STATE.questions[_id];
             setGlobalState(NEW_STATE);
           };
 
           // ...
       ~~~
 
-(NB: we could modify these actions slightly so that we are not replacing our entire `GLOBAL_STATE` but rather a "slice" of state such as the `GLOBAL_STATE.entities` object.)
-
-
-8. Now, let's make sure these changes are reflected across our application. Being sure to pass `GLOBAL_STATE` and the appropriate action functions where needed. We will not bother with actually implementing the other features we've discussed.
+1. Now, let's make sure these changes are reflected across our application. Being sure to pass `GLOBAL_STATE` and the appropriate action functions where needed. We will not bother with actually implementing the other features we've discussed.
 
     ~~~js
          // /src/components/App.js
@@ -139,16 +134,16 @@ Notice that we have also changed the configuration of our `questions` from an ar
 
          export const Questions = ({GLOBAL_STATE, deleteQuestion}) => {
            // we want to iterate through an array of questions eventually.
-           const questions = Object.values(GLOBAL_STATE.entities.questions)
+           const questions = Object.values(GLOBAL_STATE.questions)
 
            // ...
          };
     ~~~
 
-8. We are now getting much closer to a stateful application!. 
+2. We are now getting much closer to a stateful application!. 
 
 
-9. Before we move on, let's take a look at what our `App` component WOULD return if we go ahead and implement the features we've discussed in the previous section. Every component retured from `App` needs access to at least 4 of these variables. In fact, it's likely that some variables will need to be passed down once more from `Questions` to whatever component we build to manage `Answers`.
+3. Before we move on, let's take a look at what our `App` component WOULD return if we go ahead and implement the features we've discussed in the previous section. Every component retured from `App` needs access to at least 4 of these variables. In fact, it's likely that some variables will need to be passed down once more from `Questions` to whatever component we build to manage `Answers`.
    
      ~~~html
        <!-- /src/components/App.js -->
@@ -170,9 +165,9 @@ Notice that we have also changed the configuration of our `questions` from an ar
           />
           <Questions
              userName={GLOBAL_STATE.session.user.username}
-             answers={GLOBAL_STATE.entities.answers}
+             answers={GLOBAL_STATE.answers}
              adminStatus={GLOBAL_STATE.session.user.isAdmin} 
-             questions={GLOBAL_STATE.entities.questions}
+             questions={GLOBAL_STATE.questions}
              isDark={GLOBAL_STATE.ui.isDark}
              submitAnswer={submitAnswer}
              deleteQuestion={deleteQuestion}
@@ -183,3 +178,5 @@ Notice that we have also changed the configuration of our `questions` from an ar
    ~~~
 
 This is confusing. And ugly. And bad. Also, our `GLOBAL_STATE` object is simply the local state of the top level component. I wonder if there is a better way.
+
+(There is)

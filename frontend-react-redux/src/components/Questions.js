@@ -1,8 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export const Questions = ({ GLOBAL_STATE, deleteQuestion }) => {
-
-    const questions = Object.values(GLOBAL_STATE.questions);
+const Questions = ({ questions, deleteQuestion }) => {
 
     const generateQuestionsList = () => {
         if (!questions.length) return <h1>No Questions Yet</h1>
@@ -23,3 +22,14 @@ export const Questions = ({ GLOBAL_STATE, deleteQuestion }) => {
     );
 
 }
+
+
+const mapStateToProps = state => ({
+    questions: Object.values(state.questions)
+});
+
+const mapDispatchToProps = dispatch => ({
+    deleteQuestion: _id => dispatch(deleteQuestion(_id))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Questions)
