@@ -1,7 +1,7 @@
 {
   "name": "frontend-react",
   "version": "1.0.0",
-  "description": "React Frontend for Questions App",
+  "description": "Frontend React",
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve --config ./webpack.config.js --mode development",

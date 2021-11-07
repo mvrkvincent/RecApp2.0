@@ -1,7 +1,7 @@
 {
-  "name": "frontend-react",
+  "name": "frontend-react-global",
   "version": "1.0.0",
-  "description": "React Frontend for Questions App",
+  "description": "RecApp2.0: Frontend + React + Global State",
   "main": "index.js",
   "scripts": {
     "start": "webpack -w --mode=development",
