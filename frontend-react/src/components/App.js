@@ -21,7 +21,7 @@ export const App = () => {
 
   return (
     <div className="App">
-      <header>RecApp2.0</header>
+      <header>RecApp2.0: Frontend + React</header>
       <QuestionForm 
         submitQuestion={submitQuestion}
       />

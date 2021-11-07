@@ -7,21 +7,21 @@ import './app.css'
 export const App = () => {
 
   const [GLOBAL_STATE, setGlobalState] = useState({
-    // session: {
-    //   user: {
-    //     username: 'Gaius Helen Mohiam',
-    //     isAdmin: true,
-    //   }
-    // },
+    session: {
+      user: {
+        username: 'Gaius Helen Mohiam',
+        isAdmin: true,
+      }
+    },
     questions: {
       1: {_id: 1, name: 'Vladimir Harkonnen', content: 'Am I the drama?' },
       2: {_id: 2, name: 'Lady Jessica', content: 'Is Paul the Kwisatz Haderach?' },
       3: {_id: 3, name: 'Paul Atreides', content: 'Why are my dreams so sandy?' },
     },
-    // answers: {},
-    // ui: {
-    //   isDark: false,
-    // },
+    answers: {},
+    ui: {
+      isDark: false,
+    },
   });
   
   const submitQuestion = question => {
@@ -39,7 +39,7 @@ export const App = () => {
 
   return (
     <div className="App">
-      <header>RecApp2.0</header>
+      <header>RecApp2.0: Frontend + React + Global State</header>
       <QuestionForm 
         submitQuestion={submitQuestion}
       />
