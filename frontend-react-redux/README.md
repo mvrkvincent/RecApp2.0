@@ -1,4 +1,4 @@
-# State Management + Redux
+# State & State Management
 ---
 
 ## State
@@ -19,30 +19,28 @@
           ]);
 
         // ...
-
       ~~~
 
 2. Changes to the `questions` array are handled by simple setter functions and, together with the array itself, are passed along to the applications other components directly as props. 
 
-        ~~~html
-          <!-- /src/components/App.js -->
-          
-          <!-- ... -->
+     ~~~html
+       <!-- /src/components/App.js -->
+       
+       <!-- ... -->
 
-          <div className="App">
-             <header>RecApp2.0</header>
-             <QuestionForm 
-               submitQuestion={submitQuestion}
-             />
-             <Questions 
-               deleteQuestion={deleteQuestion}
-               questions={questions}
-             />
-           </div>
+       <div className="App">
+          <header>RecApp2.0</header>
+          <QuestionForm 
+            submitQuestion={submitQuestion}
+          />
+          <Questions 
+            deleteQuestion={deleteQuestion}
+            questions={questions}
+          />
+        </div>
 
-          <!-- ... -->
-
-      ~~~
+       <!-- ... -->
+   ~~~
 
 3. Now imagine we want to extend the functionality of our application with a few new features:
     - Current user's name appears in the `HeaderComponent`.
@@ -84,7 +82,6 @@
         });
 
         // ...
-
       ~~~
 
 7. Next, let's refactor the action functions for our `questions` to modify `GLOBAL_STATE`. We will want to create an entirely new object `NEW_STATE` from our `GLOBAL_STATE` prior to making any changes. This way, we are never *modifying* state directly but replacing it with a new single source of truth with each change.
@@ -110,8 +107,8 @@ Notice that we have also changed the configuration of our `questions` from an ar
           };
 
           // ...
-
       ~~~
+
 (NB: we could modify these actions slightly so that we are not replacing our entire `GLOBAL_STATE` but rather a "slice" of state such as the `GLOBAL_STATE.entities` object.)
 
 
@@ -146,7 +143,6 @@ Notice that we have also changed the configuration of our `questions` from an ar
 
            // ...
          };
-
     ~~~
 
 8. We are now getting much closer to a stateful application!. 
@@ -184,11 +180,6 @@ Notice that we have also changed the configuration of our `questions` from an ar
         </div>
 
        <!-- ... -->
-
    ~~~
 
 This is confusing. And ugly. And bad. Also, our `GLOBAL_STATE` object is simply the local state of the top level component. I wonder if there is a better way.
-  
-## Redux
-
-1. There is. 
