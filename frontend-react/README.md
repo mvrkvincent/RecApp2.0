@@ -154,7 +154,7 @@ The core feature of our application allows users to Create, Read, and Destroy a 
 
 Before we build out our components, let's head back to `./App.js` and plan out the overall architecture and business logic of our application.
 
-1. Since our application currently only renders one set of data, we will start by storing our questions in a simple array. 
+1. Since our application currently only renders one set of data, we will start by storing our questions in a simple array. I've added some seed data to get us started.
 
       ~~~js
           // /src/components/App.js
