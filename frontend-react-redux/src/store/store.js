@@ -16,7 +16,8 @@ const questionReducer = createReducer(initialState, builder => {
       state.questions[action.payload._id] = action.payload;
     })
     .addCase('REMOVE_QUESTION', (state, action) => {
-      delete state.questions[action.payload._id];
+      debugger
+      delete state.questions[action.payload];
     });
 });
 

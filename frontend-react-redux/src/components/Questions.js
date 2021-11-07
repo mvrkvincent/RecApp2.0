@@ -1,7 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
+import {deleteQuestion} from '../actions/question_actions'
 
 const Questions = ({ questions, deleteQuestion }) => {
+    
 
     const generateQuestionsList = () => {
         if (!questions.length) return <h1>No Questions Yet</h1>
@@ -25,7 +27,7 @@ const Questions = ({ questions, deleteQuestion }) => {
 
 
 const mapStateToProps = state => ({
-    questions: Object.values(state.questions)
+    questions: state.questions ? Object.values(state.questions) : []
 });
 
 const mapDispatchToProps = dispatch => ({

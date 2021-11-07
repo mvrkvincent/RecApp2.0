@@ -11,7 +11,7 @@ export const fetchQuestions = () => async dispatch => {
     } catch (err) {
         console.log(`${err} - in fetchQuestions`)
     };
-  };
+};
 
 export const submitQuestion = question => async dispatch => {
     try {

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Provider } from 'react-redux';
-import QuestionForm from './components/QuestionForm';
-import Questions from './components/Questions';
+import QuestionForm from './QuestionForm';
+import Questions from './Questions';
 import './css_reset.css'
 import './app.css'
 
-const App = ({store}) => {
+export const App = ({store}) => {
   return (
     <Provider store={store}>
       <div className="App">
@@ -15,6 +15,4 @@ const App = ({store}) => {
       </div>
     </Provider>
   );
-}
-
-export default App;
+};

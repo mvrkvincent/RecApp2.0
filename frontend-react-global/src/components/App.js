@@ -27,7 +27,7 @@ export const App = () => {
   const submitQuestion = question => {
     const NEW_STATE = {...GLOBAL_STATE};
     NEW_STATE.questions[question._id] = question;
-    debugger
+    
     setGlobalState(NEW_STATE);
   };
 
