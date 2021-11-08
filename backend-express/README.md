@@ -1,4 +1,4 @@
-# Backend Design + Express
+# Backend Design
 --- 
 
 ## mongoDB Cluster Setup
