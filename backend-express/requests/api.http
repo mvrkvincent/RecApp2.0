@@ -16,5 +16,5 @@ Content-Type: application/json
 
 ### Delete a Question
 
-DELETE http://127.0.0.1:5000/api/questions/123
+DELETE http://127.0.0.1:5000/api/questions/61888decce9ba60aa8ce3900
 Content-Type: application/json
