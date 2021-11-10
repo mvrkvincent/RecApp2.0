@@ -23,9 +23,8 @@ export const QuestionForm = ({ submitQuestion }) => {
     };
 
     return (
-          <div className="module">
-            <h1>Ask a Question:</h1>
-            <form onSubmit={handleSubmit}>
+            <form className='module' onSubmit={handleSubmit}>
+              <h1>Ask a Question:</h1>
               <input
                 name="name"
                 type="text"
@@ -43,7 +42,6 @@ export const QuestionForm = ({ submitQuestion }) => {
               />
               <button type='submit'>Submit &rarr;</button>
             </form>
-          </div>
     );
 };
 
