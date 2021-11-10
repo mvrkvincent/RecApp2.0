@@ -153,13 +153,13 @@
 
             const generateQuestionsList = () => {
                 // if there are no questions, tell us that!
-                if (!questions.length) return Questions.innerHtml = 'No Questions Yet';
+                if (!questions.length) return Questions.innerHTML = 'No Questions Yet';
 
                 // remove previous displayed questions.
                 Questions.innerHTML = '';
 
                 // take each individual question and format it. Reverse the `questions` array if we want the most recent `question` to appear on top.
-                return questions.reverse().map((question, i) => {
+                questions.reverse().map((question, i) => {
                     const formattedQuestion = document.createElement('div');
                     formattedQuestion.key = i;
                     const h3 = document.createElement('h3');
@@ -196,9 +196,9 @@
 
     ~~~
 
-16. Whew, ok refresh and view your questions! This file is getting long. We could separate these concerns if we want to, but we'd have to be sure to import each file into the `body` of `/public/index.html`. I don't want to. 
+15. Whew, ok refresh and view your questions! This file is getting long. We could separate these concerns if we want to, but we'd have to be sure to import each file into the `body` of `/public/index.html`. I don't want to. 
 
-17. We have a couple more things left to do. 1) Build a handler for `CREATE`ing an `question` and 2) build a handler for `DESTROY`ing a question. 
+16. We have a couple more things left to do. 1) Build a handler for `CREATE`ing an `question` and 2) build a handler for `DESTROY`ing a question. 
 
     ~~~js
     // /src/index.js
@@ -224,7 +224,7 @@
 
     ~~~
 
-18. Once these are built, we just need to connect our `deleteQuestion` function to the rendered `question`, and add an **Event Listener** to listen for submission of our form. The code should look like this:
+17. Once these are built, we just need to connect our `deleteQuestion` function to the rendered `question`, and add an **Event Listener** to listen for submission of our form. The code should look like this:
 
     ~~~js
     // /src/index.js
@@ -261,9 +261,9 @@
 
     ~~~
 
-19. Ok, let's make it pretty. Create a `css_reset.css` (copy the one from this repo) and `index.css` file in `/src`. Add a `link` tag for each of these files to the `head` of `/public/index.html`. 
+18. Ok, let's make it pretty. Create a `css_reset.css` (copy the one from this repo) and `index.css` file in `/src`. Add a `link` tag for each of these files to the `head` of `/public/index.html`. 
 
-20. Style as you please by creating classes and adding them to you components like this `[component].classList.add("component-class")`! Do this directly below the components declaration statement. I've also removed the placeholder text we initially gave `App` and replaced it with an `append`ed `header`a simple title.
+19. Style as you please by creating classes and adding them to you components like this `[component].classList.add("component-class")`! Do this directly below the components declaration statement. I've also removed the placeholder text we initially gave `App` and replaced it with an `append`ed `header`a simple title.
 Here are the additions: 
 
     ~~~js

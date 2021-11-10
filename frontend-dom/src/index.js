@@ -63,11 +63,11 @@ const render = () => {
     const Questions = document.createElement('div');
 
     const generateQuestionsList = () => {
-        if (!questions.length) return Questions.innerHtml = 'No Questions Yet';
+        if (!questions.length) return Questions.innerHTML = 'No Questions Yet';
 
         Questions.innerHTML = '';
 
-        return questions.reverse().map((question, i) => {
+        questions.reverse().map((question, i) => {
             const formattedQuestion = document.createElement('div');
             formattedQuestion.classList.add('module');
             formattedQuestion.key = i;
@@ -82,11 +82,10 @@ const render = () => {
             formattedQuestion.append(h3);
             formattedQuestion.append(span);
             formattedQuestion.append(button);
-
+            
             Questions.append(formattedQuestion);
-
+            
         });
-
     };
 
     App.append(QuestionForm);
