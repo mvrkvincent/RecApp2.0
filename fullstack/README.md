@@ -17,12 +17,13 @@
 
   ~~~js
   // /index.js
-
+    // ...
     import cors from 'cors';
 
     const app = express();
 
     app.use(cors());
+    // ...
   ~~~
 
 3. `cors` accepts optional arguments allowing us to restrict `Cross-Origin` access to specific `port`s or `ip addresses`. For now, we will opt out of passing these arguments and allow access from all origins. 
@@ -35,7 +36,6 @@
 
   ~~~js
   // /src/index.js
-
     // ...
     let initialState = {
       questions: {
@@ -44,7 +44,6 @@
         // 3: {_id: 3, name: 'Paul Atreides', content: 'Why are my dreams so sandy?'},
       },
   };
-
     // ...
   ~~~
 
@@ -52,7 +51,6 @@
    
   ~~~js
   // /src/store/store.js
-
     // ...
     const questionReducer = createReducer(initialState, builder => {
      builder
@@ -69,7 +67,6 @@
           // depending on how test `_id` was being passed before this refactor, you may need to key into payload to retrieve the `_id`.
           delete state.questions[action.payload._id];
         });
-
     // ...
   ~~~
 
@@ -112,7 +109,7 @@
             console.log(`${err} - in deleteQuestion`)
         };
     };
-
+    // ...
   ~~~
 
 5. Our `question` data will be nested under `data` in the `res` object, be sure to pass **ONLY** that `data` to our **Action Creators**.

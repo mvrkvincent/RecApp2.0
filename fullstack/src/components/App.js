@@ -9,7 +9,7 @@ export const App = ({store}) => {
   return (
     <Provider store={store}>
       <div className="App">
-        <header>RecApp2.0: Frontend + React + Redux</header>
+        <header>RecApp2.0: Full Stack</header>
         <QuestionForm />
         <Questions />
       </div>
