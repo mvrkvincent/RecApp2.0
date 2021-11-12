@@ -22,7 +22,7 @@
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <!-- we will include our soon to be created index.js file, being sure to `defer` this code until after our HTML file has rendered -->
-                <script src="index.js" defer></script> 
+                <script src="../src/index.js" defer></script> 
                 <title>Questions App</title>
             </head>
             <body>
@@ -273,6 +273,8 @@ Here are the additions:
         App.classList.add('App');
         const header = document.createElement('header');
         header.innerHTML = 'RecApp2.0: Frontend + DOM Manipulation';
+
+        App.append(header);
 
         // to QuestionForm
         QuestionForm.classList.add('module');

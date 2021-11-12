@@ -10,7 +10,7 @@
    - `react-redux`
    - `redux-logger`
 
-2. Next, let's add two directories to our file structure at the root `/` level. As always, there is some debate around how to properly separate state management logic. Everyone is wrong, so here's how I do it. 
+2. Next, let's add two directories to our file structure at `/src` level. As always, there is some debate around how to properly separate state management logic. Everyone is wrong, so here's how I do it. 
    - `actions`
    - `store`
 

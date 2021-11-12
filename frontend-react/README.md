@@ -24,13 +24,13 @@
       - `css-loader`
       - `style-loader`
 
-3. Add a `dev` script to our `package.json`. This will allow us to spin up our frontend with a single command `npm run dev`. 
+3. Add a `start:dev` script to our `package.json`. This will allow us to spin up our frontend with a single command `npm run start:dev`. 
 
     ~~~js
     // package.json
         "scripts": {
             // ...
-            "dev": "webpack serve --config ./webpack.config.js --mode development",
+            "start:dev": "webpack serve --config ./webpack.config.js --mode development",
             // ...
         },
     ~~~

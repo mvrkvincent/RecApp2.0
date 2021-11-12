@@ -79,17 +79,14 @@ const render = () => {
             button.innerHTML = 'Delete';
             button.onclick = () => deleteQuestion(question._id);
 
-            formattedQuestion.append(h3);
-            formattedQuestion.append(span);
-            formattedQuestion.append(button);
+            formattedQuestion.append(h3, span, button);
             
             Questions.append(formattedQuestion);
             
         });
     };
 
-    App.append(QuestionForm);
-    App.append(Questions);
+    App.append(QuestionForm, Questions);
 
     const root = document.getElementById('root');
     root.append(App);

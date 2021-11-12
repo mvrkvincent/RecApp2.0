@@ -52,4 +52,3 @@ hashmap.insert('bar', 1);
 hashmap.fetch('foo') // 0
 hashmap.fetch('bar') // 1
 
-
