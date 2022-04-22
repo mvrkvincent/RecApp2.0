@@ -20,5 +20,5 @@ app.get('/firstwordsentontheinternet', (req, res) => res.send('lo'));
 
 app.use('/api/questions', questions);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
