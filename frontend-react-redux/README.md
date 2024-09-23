@@ -256,16 +256,18 @@ IMPORTANT: `Babel` currently has issues with `async` functions and so we must `n
 
   1. First we will invoke `connect` and pass our two mapping functions as arguments.
     ~~~js
+
     // /src/components/Questions.js
         
         // ...
         connect(mapStateToProps, mapDispatchToProps)
     ~~~
 
-  2. Let's imagine an extremely simplified version of connect (this is for illustrative purposes only). Theres nothing magic happening here, in fact. We could make this ourselves and resurrect our `GLOBAL_STATE`
+  3. Let's imagine an extremely simplified version of connect (this is for illustrative purposes only). Theres nothing magic happening here, in fact. We could make this ourselves and resurrect our `GLOBAL_STATE`
   object if we really wanted to. Which I don't, because I'm as lazy as I am nostalgic. 
 
     ~~~js
+    
     // react-redux/connect.js
 
         import {getReduxStore} from 'somewhere_else.js'
