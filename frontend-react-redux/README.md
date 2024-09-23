@@ -255,18 +255,15 @@ IMPORTANT: `Babel` currently has issues with `async` functions and so we must `n
 9.  The functions above will now need to be invoked with the appropriate, but we do not have access to either `state` or `dispatch` from our store. This is where `connect` comes in. I will break this down carefully as to prevent any confusion or attempts at magical thinking. 
 
   1. First we will invoke `connect` and pass our two mapping functions as arguments.
-    ~~~js
 
     // /src/components/Questions.js
         
         // ...
         connect(mapStateToProps, mapDispatchToProps)
-    ~~~
+        
 
-  3. Let's imagine an extremely simplified version of connect (this is for illustrative purposes only). Theres nothing magic happening here, in fact. We could make this ourselves and resurrect our `GLOBAL_STATE`
-  object if we really wanted to. Which I don't, because I'm as lazy as I am nostalgic. 
+  2. Let's imagine an extremely simplified version of connect (this is for illustrative purposes only). Theres nothing magic happening here, in fact. We could make this ourselves and resurrect our `GLOBAL_STATE` object if we really wanted to. Which I don't, because I'm as lazy as I am nostalgic. 
 
-    ~~~js
     
     // react-redux/connect.js
 
@@ -289,15 +286,15 @@ IMPORTANT: `Babel` currently has issues with `async` functions and so we must `n
           return functionThatPassesPropsToComponent;
         }
 
-    ~~~
+
   3. Since connect returns a function that expects our `Questions` component as an argument. Let's go ahead and invoke that function immediately and export the resulting **connected** component out of this file.
 
-    ~~~js
+
     // /src/components/Questions.js
         
         // ...
         export default connect(mapStateToProps, mapDispatchToProps)(Questions)
-    ~~~
+
   
   (NB: If these mapping functions grow too large, it may be wise to extract them into a container file and import your Component there)
 
